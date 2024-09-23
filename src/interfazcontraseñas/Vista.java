@@ -5,6 +5,7 @@
 package interfazcontraseñas;
 
 import interfazcontraseñas.metodos.recorrerTabla;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -115,8 +116,9 @@ public class Vista extends javax.swing.JFrame {
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
        
-        recorrerTabla datos = new recorrerTabla();
+        String nombreArchivo = JOptionPane.showInputDialog("Introduce el nombre del archivo");
         
+        recorrerTabla datos = new recorrerTabla();       
         datos.recorrerTabla(this.modeloTabla);
     }//GEN-LAST:event_jButtonExportActionPerformed
 

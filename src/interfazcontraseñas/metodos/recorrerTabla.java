@@ -5,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class recorrerTabla {
-    private EscribirFichero metodoEscritura = new EscribirFichero();
+    private Fichero metodoEscritura = new Fichero();
     private String nombreFichero;
     
     
