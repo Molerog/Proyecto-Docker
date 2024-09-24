@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+# Archivos de Java
 /build
 /nbproject/private/
-dist/
+/dist/
 
-=======
+# Archivos de Node.js
 .env
 package-lock.json
->>>>>>> 41fdeab (Primer commit: añadida configuracion inicial y archivos ignorados)
+/node_modules
