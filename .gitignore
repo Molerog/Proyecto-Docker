@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 /build
 /nbproject/private/
 dist/
 
+=======
+.env
+package-lock.json
+>>>>>>> 41fdeab (Primer commit: añadida configuracion inicial y archivos ignorados)
