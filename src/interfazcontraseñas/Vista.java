@@ -4,6 +4,8 @@
  */
 package interfazcontraseñas;
 
+import interfazcontraseñas.httprequest.HttpBuilder;
+import interfazcontraseñas.metodos.Fichero;
 import interfazcontraseñas.metodos.recorrerTabla;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -110,14 +112,25 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGeneratePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGeneratePasswordActionPerformed
+        Fichero fichero = new Fichero();
+        String URI = fichero.loadApiUrlFromProperties();
+        HttpBuilder urlRequest = new HttpBuilder();
+        try{
+            urlRequest.sendRequest(URI);
+        } catch(Exception e){
+            System.out.println("Ocurrió un error al hacer la solicitud: " + e.getMessage());
+        }
+        
         //New Object permite introducir cualquier tipo de dato ya que Object es la clase padre de todas las clases.
-        this.modeloTabla.addRow(new Object[]{"supercontraseña", "www.3djuegos.com"});
+        this.modeloTabla.addRow(new Object[]{});
     }//GEN-LAST:event_jButtonGeneratePasswordActionPerformed
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
        
+        //Se pide el nombre del archivo a crear para las contraseñas
         String nombreArchivo = JOptionPane.showInputDialog("Introduce el nombre del archivo");
         
+        //Se instancia un objeto datos para utilizar el método que recorre los valores de la tabla.
         recorrerTabla datos = new recorrerTabla();       
         datos.recorrerTabla(this.modeloTabla);
     }//GEN-LAST:event_jButtonExportActionPerformed
