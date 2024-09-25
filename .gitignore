@@ -2,7 +2,7 @@
 /build
 /nbproject/private/
 /dist/
-config/config.properties
+src/config/config.properties
 
 # Archivos de Node.js
 .env
