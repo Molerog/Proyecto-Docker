@@ -7,7 +7,8 @@ service=FastAPI()
 
 load_dotenv()
 
-port_path = os.getenv(PORT, 8002)
+# La variable de entorno "PORT" viene como String, hay que hacer un casting a numero para que el servidor lo pueda usar adecuadamente como puerto.
+port_path = int(os.getenv('PORT', 8002))
 
 
 @service.get("/contrasena")
