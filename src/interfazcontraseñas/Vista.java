@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfazcontraseñas;
+package interfazcontraseï¿½as;
 
-import interfazcontraseñas.httprequest.HttpBuilder;
-import interfazcontraseñas.metodos.Fichero;
-import interfazcontraseñas.metodos.recorrerTabla;
+import interfazcontraseï¿½as.httprequest.HttpBuilder;
+import interfazcontraseï¿½as.metodos.Fichero;
+import interfazcontraseï¿½as.metodos.recorrerTabla;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,7 +41,7 @@ public class Vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonGeneratePassword.setText("Generar contraseña segura");
+        jButtonGeneratePassword.setText("Generar contraseï¿½a segura");
         jButtonGeneratePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGeneratePasswordActionPerformed(evt);
@@ -73,7 +73,7 @@ public class Vista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableVistaDatos);
 
-        jButtonExport.setText("Exportar contraseñas");
+        jButtonExport.setText("Exportar contraseï¿½as");
         jButtonExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExportActionPerformed(evt);
@@ -118,7 +118,7 @@ public class Vista extends javax.swing.JFrame {
         try{
             urlRequest.sendRequest(URI);
         } catch(Exception e){
-            System.out.println("Ocurrió un error al hacer la solicitud: " + e.getMessage());
+            System.out.println("Ocurriï¿½ un error al hacer la solicitud: " + e.getMessage());
         }
         
         //New Object permite introducir cualquier tipo de dato ya que Object es la clase padre de todas las clases.
@@ -127,10 +127,10 @@ public class Vista extends javax.swing.JFrame {
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
        
-        //Se pide el nombre del archivo a crear para las contraseñas
+        //Se pide el nombre del archivo a crear para las contraseï¿½as
         String nombreArchivo = JOptionPane.showInputDialog("Introduce el nombre del archivo");
         
-        //Se instancia un objeto datos para utilizar el método que recorre los valores de la tabla.
+        //Se instancia un objeto datos para utilizar el mï¿½todo que recorre los valores de la tabla.
         recorrerTabla datos = new recorrerTabla();       
         datos.recorrerTabla(this.modeloTabla);
     }//GEN-LAST:event_jButtonExportActionPerformed

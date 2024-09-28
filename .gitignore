@@ -8,3 +8,6 @@ src/config/config.properties
 .env
 package-lock.json
 /node_modules
+
+# Archivos de Python
+**/__pycache__/
