@@ -8,6 +8,7 @@ import java.net.http.HttpResponse;
 import interfazcontraseñas.metodos.recorrerTabla;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.json.JSONObject;
 
 /**
  *
@@ -117,16 +118,13 @@ public class Vista extends javax.swing.JFrame {
         String URI = config.getConfigLoader();
         //Hacemos la petición GET para obtener la contraseña
         HttpResponse <String> response = config.getPasswordResponse(URI);
-        System.out.println(response.body());
-        /*HttpBuilder urlRequest = new HttpBuilder();
-        try{
-            urlRequest.sendRequest(URI);
-        } catch(Exception e){
-            System.out.println("Ocurrió un error al hacer la solicitud: " + e.getMessage());
-        }*/
-        
-        //New Object permite introducir cualquier tipo de dato ya que Object es la clase padre de todas las clases.
-        this.modeloTabla.addRow(new Object[]{});
+        String json = response.body();
+        //Importamos la librería org.json para trabajar con la respuesta json del servidor
+        JSONObject jsonObject = new JSONObject(json);
+        //Obtenemos el valor del objeto a través de su clave
+        String password = jsonObject.getString("contrasena");
+       
+        this.modeloTabla.addRow(new String[]{password});
     }//GEN-LAST:event_jButtonGeneratePasswordActionPerformed
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
