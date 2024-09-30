@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from api.sendPassword import getPassword
 import os
+import uvicorn
 from dotenv import load_dotenv
 
 service=FastAPI()
@@ -17,8 +18,8 @@ def ruta_contrasena():
 
 # El código se ejecuta solo si el archivo se está ejecutando directamente (python main.py).  
 if __name__ == "__main__":   
-    import uvicorn
-    uvicorn.run("main:service", host="python_backend", port=port_path, reload=True)
+    host = os.getenv("HOST", "127.0.0.1")
+    uvicorn.run("main:service", host=host, port=port_path, reload=True)
 
 
 

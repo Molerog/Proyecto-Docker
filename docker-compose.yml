@@ -2,9 +2,9 @@ version: '3'
 services:
   node-backend:
     build:
-      context: .
+      context: . # Directorio reaiz del código fuente de Node.js
       dockerfile: Dockerfile  # Usar el Dockerfile del contexto para Node.js
-    container_name: node_backend
+    container_name: node_backend # Nombre del contenedor de Node.js
     ports:
       - "${PORT}:${PORT}"  # Puerto leído de la variable de entorno para el servicio Node.js
        
@@ -12,19 +12,20 @@ services:
       - .:/app
     environment:
       - NODE_ENV=production  # La aplicación se ejecuta en modo de producción (rendimiento optimizado, no instala dependencias de desarrollo).
-      - SERVICEPY_PORT=3000
+      - ENVIRONMENT=docker # Sustituye la variable de entorno ENVIRONMENT del .env cuando se lanza Docker
     env_file:
       - .env  # Cargar las variables de entorno del archivo .env
 
   python-backend:
     build:
-      context: ./src/python  # El directorio donde está tu código Python
+      context: ./src/python  # El directorio donde está el código fuente de Python
       dockerfile: Dockerfile  # El Dockerfile de Python en su contexto
-    container_name: python_backend
+    container_name: python_backend # Nombre del contenedor de uvicorn
     ports:
-    - "${SERVICEPY_PORT}:${SERVICEPY_PORT}"  # Mapea el puerto de Python desde la variable .env
+    - "${SERVICEPY_PORT}:${SERVICEPY_PORT}"  # Mapea el puerto de del servicio de uvicorn desde la variable .env
     environment:
     - PYTHON_SERVICE_PATH=/app/service  # Ruta de acceso para la importación de la función
+    - HOST = 0.0.0.0
     volumes:
       - ./src/python:/app  # Monta el código fuente de Python en el contenedor
     env_file:
