@@ -3,7 +3,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class Fichero {
+public class ConfigLoader {
     
     
     //Declaramos e inicializamos las variables que serán fijas.
@@ -13,12 +13,9 @@ public class Fichero {
     //Declaramos la variable apiURL para retornarla en un método.
     private String apiUrl;
     
-    public void escribir(String nombreFichero, Object cadena){
-        cadena= "Prueba";
-    }
     
     public String loadApiUrlFromProperties (){
-        //Instanciamos el archivo de configuración properties.
+        //Instanciamos el archivo de configuración properties para las variables de entorno.
         Properties config = new Properties();
         
         //try-with-resources, permite que un recurso se abra y cierre automáticamente sin necesidad de bloque finally.

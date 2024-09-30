@@ -15,14 +15,14 @@ public class HttpBuilder {
                 
     }
     //Método para enviar la petición al servidor
-    public void sendRequest(String uri) throws Exception {
+    public HttpResponse sendRequest(String uri) throws Exception {
         HttpRequest.Builder builder = getRequestBuilder(uri); //Aquí obtenemos el builder
         
         HttpRequest request = builder.GET().build();
         
         HttpResponse <String> response = this.client.send(request, HttpResponse.BodyHandlers.ofString());
         
-        System.out.println(response.body());
+        return response;
     }
     
 }
