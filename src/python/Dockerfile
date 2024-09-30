@@ -5,7 +5,7 @@ FROM python:3.12.6
 WORKDIR /app
 
 # Copiar el archivo requirements.txt y las dependencias
-COPY requirements.txt /app/
+COPY requirements.txt /app
 
 # Instalar las dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
@@ -17,4 +17,4 @@ COPY . /app
 EXPOSE 5912
 
 # Definir el comando para ejecutar en producción
-CMD ["uvicorn", "main:service", "--host", "127.0.0.1", "--port", "5912"]
+CMD ["uvicorn", "main:service", "--host", "0.0.0.0", "--port", "5912"]

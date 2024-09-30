@@ -13,5 +13,11 @@ RUN npm install --only=production
 # Copiar el código fuente al contenedor (se ignorará lo que haya en .dockerignore)
 COPY . /app
 
+# Exponer el puerto que usa Node.js para iniciarse
+EXPOSE 4000
+
+# Exponer el puerto que comunica con el servicio de Python
+EXPOSE 5912
+
 # Definir el comando para ejecutar en producción
 CMD ["npm", "start"]
