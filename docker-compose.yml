@@ -1,0 +1,15 @@
+version: '3'
+services:
+  node-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Usa el Dockerfile actual que tienes para Node.js
+    container_name: node_backend
+    ports:
+      - "${PORT}:${PORT}"  # Puerto leído de la variable de entorno
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=production  # La aplicación se ejecuta en modo de producción (rendimiento optimizado, no instala dependencias de desarrollo).
+    env_file:
+      - .env  # Cargar las variables de entorno del archivo .env
