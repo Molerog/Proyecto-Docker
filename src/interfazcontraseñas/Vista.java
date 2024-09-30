@@ -4,8 +4,7 @@
  */
 package interfazcontrase�as;
 
-import interfazcontrase�as.httprequest.HttpBuilder;
-import interfazcontrase�as.metodos.Fichero;
+import java.net.http.HttpResponse;
 import interfazcontrase�as.metodos.recorrerTabla;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -112,15 +111,13 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGeneratePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGeneratePasswordActionPerformed
-        Fichero fichero = new Fichero();
-        String URI = fichero.loadApiUrlFromProperties();
-        HttpBuilder urlRequest = new HttpBuilder();
-        try{
-            urlRequest.sendRequest(URI);
-        } catch(Exception e){
-            System.out.println("Ocurri� un error al hacer la solicitud: " + e.getMessage());
-        }
-        
+        //Instanciamos el controlador
+        Controlador config = new Controlador();
+        //Usamos el m�todo para cargar las variables de entorno y preparar la URI
+        String URI = config.getConfigLoader();
+        //Hacemos la petici�n GET para obtener la contrase�a
+        HttpResponse <String> response = config.getPasswordResponse(URI);
+        System.out.println(response.body());
         //New Object permite introducir cualquier tipo de dato ya que Object es la clase padre de todas las clases.
         this.modeloTabla.addRow(new Object[]{});
     }//GEN-LAST:event_jButtonGeneratePasswordActionPerformed
