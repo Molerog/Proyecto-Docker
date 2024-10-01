@@ -18,7 +18,7 @@ Este proyecto consiste en una aplicación distribuida que utiliza diferentes tec
 
 A continuación se muestra una captura de la **interfaz actual** de la aplicación, desarrollada en Swing. La interfaz aún está en una **fase inicial**, centrada en la funcionalidad básica de generación y exportación de contraseñas:
 
-![Interfaz en proceso](image.png)
+![Interfaz en proceso](/utils/images/image.png)
 
 ### Node.js
 - **Node.js**: Recibe las peticiones enviadas desde la interfaz de Java y las redirige a otros servicios backend. El servicio actual se utiliza para la generación de contraseñas.
@@ -43,8 +43,8 @@ A continuación se muestra una captura de la **interfaz actual** de la aplicaci�
   - **.dockerignore**: Especifica qué archivos se deben excluir al construir la imagen Docker.
 - **Docker Desktop**: Herramienta que facilita la gestión y ejecución de contenedores en entornos locales.
 
-![Contenedores levantados](image-2.png)
-![Docker Desktop](image-4.png)
+![Contenedores levantados](/utils/images/image-2.png)
+![Docker Desktop](/utils/images/image-4.png)
 
 ## Instalación y Ejecución 
 
