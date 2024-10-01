@@ -44,7 +44,8 @@ A continuaci처n se muestra una captura de la **interfaz actual** de la aplicaci�
 - **Docker Desktop**: Herramienta que facilita la gesti처n y ejecuci처n de contenedores en entornos locales.
 
 ![Contenedores levantados](image-2.png)
-![Docker Desktop](image-3.png)
+![Docker Desktop](image-4.png)
+
 ## Instalaci처n y Ejecuci처n 
 
 ### Requisitos previos
